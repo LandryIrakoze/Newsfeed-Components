@@ -136,7 +136,7 @@ const createArticle = (title, date, mycontent) => {
   button.textContent = 'expand';
 
   button.addEventListener('click', () => {
-    articleDiv.classList.toggle('.article-open');
+    articleDiv.classList.toggle('article-open');
   })
 
   return articleDiv;

@@ -136,7 +136,6 @@ const createArticle = (title, date, para1, para2, para3) => {
 
   articleTitle.textContent = title;
   articleDate.textContent = date;
-  // paragraphContent.textContent = mycontent;
   firstParagraph.textContent = para1;
   secondParagraph.textContent = para2;
   thirdParagraph.textContent = para3;

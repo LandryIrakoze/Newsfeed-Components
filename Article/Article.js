@@ -114,28 +114,34 @@ const data = [
 */
 const articleContainer = document.querySelector('.articles');
 
-const createArticle = (title, date, content) => {
+const createArticle = (title, date, mycontent) => {
   const articleDiv = document.createElement('div');
   const articleTitle = document.createElement('h2');
-  const date = document.createElement('p');
+  const articleDate = document.createElement('p');
   const paragraphContent = document.createElement('p');
-  const button = document.createElement('button');
+  const button = document.createElement('span');
 
   articleDiv.classList.add('article');
-  date.classList.add('date');
+  articleDate.classList.add('date');
   button.classList.add('expandButton');
 
   articleDiv.appendChild(articleTitle);
-  articleDiv.appendChild(date);
+  articleDiv.appendChild(articleDate);
   articleDiv.appendChild(paragraphContent);
   articleDiv.appendChild(button);
 
   articleTitle.textContent = title;
-  date.textContent = date;
-  content.textContent = content;
+  articleDate.textContent = date;
+  paragraphContent.textContent = mycontent;
   button.textContent = 'expand';
 
   button.addEventListener('click', () => {
     articleDiv.classList.toggle('.article-open');
   })
+
+  return articleDiv;
 }
+
+data.forEach(element => {
+  articleContainer.appendChild(createArticle(element.title, element.date, element.firstParagraph));
+})

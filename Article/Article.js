@@ -114,11 +114,13 @@ const data = [
 */
 const articleContainer = document.querySelector('.articles');
 
-const createArticle = (title, date, mycontent) => {
+const createArticle = (title, date, para1, para2, para3) => {
   const articleDiv = document.createElement('div');
   const articleTitle = document.createElement('h2');
   const articleDate = document.createElement('p');
-  const paragraphContent = document.createElement('p');
+  const firstParagraph = document.createElement('p');
+  const secondParagraph = document.createElement('p');
+  const thirdParagraph = document.createElement('p');
   const button = document.createElement('span');
 
   articleDiv.classList.add('article');
@@ -127,12 +129,17 @@ const createArticle = (title, date, mycontent) => {
 
   articleDiv.appendChild(articleTitle);
   articleDiv.appendChild(articleDate);
-  articleDiv.appendChild(paragraphContent);
+  articleDiv.appendChild(firstParagraph);
+  articleDiv.appendChild(secondParagraph);
+  articleDiv.appendChild(thirdParagraph);
   articleDiv.appendChild(button);
 
   articleTitle.textContent = title;
   articleDate.textContent = date;
-  paragraphContent.textContent = mycontent;
+  // paragraphContent.textContent = mycontent;
+  firstParagraph.textContent = para1;
+  secondParagraph.textContent = para2;
+  thirdParagraph.textContent = para3;
   button.textContent = 'expand';
 
   button.addEventListener('click', () => {
@@ -143,5 +150,11 @@ const createArticle = (title, date, mycontent) => {
 }
 
 data.forEach(element => {
-  articleContainer.appendChild(createArticle(element.title, element.date, element.firstParagraph));
+  articleContainer.appendChild(createArticle(
+    element.title, 
+    element.date, 
+    element.firstParagraph,
+    element.secondParagraph,
+    element.thirdParagraph
+    ));
 })
